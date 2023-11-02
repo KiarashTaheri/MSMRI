@@ -232,6 +232,9 @@ def PickleAnalysis():
 
     model.evaluate(X_train, y_train, verbose=1)
     print(train_accuracy, test_accuracy)
+    plot_confusion_matrix(np.argmax(y_train, axis=1), y_pred, labels=['Present',  'N/A'],dataset='training dataset')
+    plot_confusion_matrix(np.argmax(y_test, axis=1), y_test_pred, labels=['Present',  'N/A'],dataset='testing dataset')
+
 
 #imageLoading()
 PickleAnalysis()
