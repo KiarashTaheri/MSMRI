@@ -1,3 +1,4 @@
+
 /* {{{ Copyright etc. */
 
 /*  bet.c - Brain Extraction Tool
@@ -40,6 +41,7 @@
 #include "libss.h"
 #include "libavw.h"
 #include "libtessa.h"
+#include <math.h>
 
 void usage(void);
 
@@ -91,8 +93,7 @@ int main(argc, argv)
 {
   /* {{{ vars */
 
-FDT *in, *mask=NULL, *raw=NULL, threshold, thresh2, thresh98,
-  hist_min=0, hist_max=0, medianval;
+FDT *in, *mask=NULL, *raw=NULL, threshold, thresh2, thresh98, hist_min=0, hist_max=0, medianval;
 int x_size, y_size, z_size, x, y, z, i, pc=0, iters, pass=1,
   output_brain=1, output_xtopol=0, output_cost=0, output_mask=0,
   output_overlay=0, output_skull=0, apply_thresholding=0, code_skull=0;
@@ -196,12 +197,13 @@ if ( !output_xtopol && !output_cost && !output_skull && !output_mask && !output_
 im.min=im.max=0;
 find_thresholds(&im,0.1);
 hist_min=im.min; hist_max=im.max; thresh2=im.thresh2; thresh98=im.thresh98; threshold=im.thresh;
-printf("hist_min=%f thresh2=%f thresh=%f thresh98=%f hist_max=%f\n",
-       im.min,(double)thresh2,(double)threshold,(double)thresh98,im.max);
+printf("hist_min=%f thresh2=%f thresh=%f thresh98=%f hist_max=%f\n", im.min,(double)thresh2,(double)threshold,(double)thresh98,im.max);
 printf("THRESHOLD %f\n",(double)threshold);
 
-c_of_g (im,&cgx,&cgy,&cgz); 
-cgx*=im.xv; cgy*=im.yv; cgz*=im.zv;
+c_of_g (im,&cgx,&cgy,&cgz);
+cgx*=im.xv;
+cgy*=im.yv;
+cgz*=im.zv;
 printf("CofG (%f,%f,%f) mm\n",cgx,cgy,cgz);
 
 radius = find_radius (im,im.xv*im.yv*im.zv);

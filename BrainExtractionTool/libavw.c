@@ -1,14 +1,3 @@
-/*
- * Analyze IO stuff, originally based on code by Mayo:
- *
- * (c) Copyright, 1986-1995
- * Biomedical Imaging Resource
- * Mayo Foundation
- *
- */
-
-/* {{{ includes and typedefs */
-
 #include "libss.h"
 #include "libavw.h"
 
@@ -408,4 +397,3 @@ fclose(fd);
 }
 
 /* }}} */
-

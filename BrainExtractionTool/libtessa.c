@@ -1,4 +1,5 @@
-/* {{{ comments */
+
+@/* {{{ comments */
 
 /*% cc -g sphere.c -o sphere -lm
  *
@@ -867,14 +868,3 @@ void xtopol_output(points_struc *points, int pc, char *fileroot)
 }
 
 /* }}} */
-@
-
-
-1.1.1.1
-log
-@Starting new project "MIFBet".  Initial version 1.0 is released for Debian
-5.0, compiled with CMIF v5.3.
-@
-text
-@@
-

@@ -1,0 +1,146 @@
+head	1.3;
+access;
+symbols
+	mifbet_v1_1:1.3
+	start:1.1.1.1
+	msmri:1.1.1
+	mifbet_v1_0:1.3;
+locks; strict;
+comment	@# @;
+
+
+1.3
+date	2011.03.11.19.38.14;	author kevin;	state Exp;
+branches;
+next	1.2;
+commitid	BkJgqbvhBXmVWsbv;
+
+1.2
+date	2011.01.07.00.50.12;	author kevin;	state Exp;
+branches;
+next	1.1;
+commitid	jc9uSHUNRQBRIg3v;
+
+1.1
+date	2010.12.06.22.31.49;	author kevin;	state Exp;
+branches
+	1.1.1.1;
+next	;
+commitid	d6usVf0bRaBMWgZu;
+
+1.1.1.1
+date	2011.03.11.19.36.48;	author kevin;	state Exp;
+branches;
+next	;
+commitid	OyGdGxDa2z7iWsbv;
+
+
+desc
+@@
+
+
+1.3
+log
+@Checking in final changes for v1.0 release.
+@
+text
+@#===========================================================================
+# Project    : MIFBet
+# Description: Brain Extraction Tool
+#
+# Author     : Kevin Lam
+# Date       : 04-NOV-2010
+# Change     : Version 1.0 CMIF v5.3
+#===========================================================================
+
+EXEC = bet_32SI
+CC = gcc
+CFLAGS = -g -Wall -DFDT="signed int"
+INCLUDES = -I.
+
+OBJS = libss.o libavw.o libtessa.o
+
+all: $(EXEC)
+
+clean:
+	rm -f *.o $(EXEC)
+
+$(EXEC): bet.o $(OBJS)
+	$(CC) -static $(OBJS) bet.o -lm -o $(EXEC)
+
+bet.o: bet.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c bet.c
+
+libss.o: libss.c libss.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c libss.c
+
+libavw.o: libavw.c libavw.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c libavw.c
+
+libtessa.o: libtessa.c libtessa.h
+	$(CC) $(CFLAGS) $(INCLUDES) -c libtessa.c
+@
+
+
+1.2
+log
+@Updated the name of the "bet" executable, which reflects the data type it
+is compiled for.  Release version of MIFBet calls a 32-bit signed int
+version of "bet".
+@
+text
+@d20 1
+a20 1
+	rm -f *.o bet
+d23 1
+a23 1
+	$(CC) -static $(OBJS) bet.o -lm -o bet
+@
+
+
+1.1
+log
+@Added bet source code and makefile.  This version of bet is possibly part
+of FSL v1.3.  This source code compiles, links and runs on Debian 5.0.
+Preliminary tests show that it behaves similarly to the research version,
+located in /res1/code/packages/fsl/bin.  Requires validation on a number of
+MIFs for this code to be certified for MIFBet v1.0 formal release.
+@
+text
+@d10 1
+d12 1
+a12 1
+CFLAGS = -DFDT="signed int" -g
+d17 1
+a17 1
+all: bet
+d22 1
+a22 1
+bet: bet.o $(OBJS)
+@
+
+
+1.1.1.1
+log
+@Starting new project "MIFBet".  Initial version 1.0 is released for Debian
+5.0, compiled with CMIF v5.3.
+@
+text
+@a9 1
+EXEC = bet_32SI
+d11 1
+a11 1
+CFLAGS = -g -Wall -DFDT="signed int"
+d16 1
+a16 1
+all: $(EXEC)
+d19 1
+a19 1
+	rm -f *.o $(EXEC)
+d21 2
+a22 2
+$(EXEC): bet.o $(OBJS)
+	$(CC) -static $(OBJS) bet.o -lm -o $(EXEC)
+@
+
+

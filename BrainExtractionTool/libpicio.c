@@ -1,4 +1,5 @@
-/* {{{ Copyright */
+
+@/* {{{ Copyright */
 
 /*  libpicio - collection of 2D image io routines
 

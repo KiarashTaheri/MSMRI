@@ -1,3 +1,4 @@
+
 /*  libpicio.h - PNM include stuff
 
     Stephen Smith, FMRIB Image Analysis Group
@@ -35,3 +36,4 @@
 int write_pgm ( char*, int, int, unsigned char* );
 int write_ppm ( char*, int, int,
 		unsigned char*, unsigned char*, unsigned char* );
+

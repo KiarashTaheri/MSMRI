@@ -129,5 +129,4 @@ void draw_surface(image_struct*, FDT, FDT, points_struc*, int);
 void fill_surface(image_struct*, points_struc*, int);
 void output_volume(points_struc*, int);
 void xtopol_output(points_struc*, int, char*);
-
 /* }}} */

@@ -1,3 +1,4 @@
+
 /*  libss.h - basic C include stuff
 
     Stephen Smith, FMRIB Image Analysis Group
@@ -72,3 +73,4 @@ void intnorm(image_struct, int, double);
 void fmrimask(image_struct, image_struct);
 void resample(image_struct, image_struct*, float);
 void sample(image_struct, image_struct, float);
+

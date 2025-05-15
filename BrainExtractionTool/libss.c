@@ -1,3 +1,4 @@
+
 /* {{{ Copyright etc. */
 
 /*  libss - collection of generic image processing functions
@@ -33,7 +34,7 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
     USA */
-  
+
 /* }}} */
 
 #include "libss.h"
@@ -1286,3 +1287,5 @@ void sample(image_struct in, image_struct out, float scale)
 /* }}} */
 
 /* }}} */
+
+

@@ -1,9 +1,50 @@
 /*
+head	1.1;
+access;
+symbols
+	mifbet_v1_1:1.1
+	start:1.1.1.1
+	msmri:1.1.1
+	mifbet_v1_0:1.1;
+locks; strict;
+comment	@ * @;
+
+
+1.1
+date	2010.12.06.22.31.49;	author kevin;	state Exp;
+branches
+	1.1.1.1;
+next	;
+commitid	d6usVf0bRaBMWgZu;
+
+1.1.1.1
+date	2011.03.11.19.36.48;	author kevin;	state Exp;
+branches;
+next	;
+commitid	OyGdGxDa2z7iWsbv;
+
+
+desc
+@@
+
+
+1.1
+log
+@Added bet source code and makefile.  This version of bet is possibly part
+of FSL v1.3.  This source code compiles, links and runs on Debian 5.0.
+Preliminary tests show that it behaves similarly to the research version,
+located in /res1/code/packages/fsl/bin.  Requires validation on a number of
+MIFs for this code to be certified for MIFBet v1.0 formal release.
+@
+text
+@
+/*
  * (c) Copyright, 1986-1995
  * Biomedical Imaging Resource
  * Mayo Foundation
  *
- */
+ 
+*/
 
 struct header_key          		/*      header_key       */
     {                                  		/* off + size*/
@@ -83,3 +124,14 @@ void avw_print(char*, struct dsr*);
 void avw_read(char*, image_struct*);
 void avw_write(char*, image_struct);
 
+
+/*
+1.1.1.1
+log
+@Starting new project "MIFBet".  Initial version 1.0 is released for Debian
+5.0, compiled with CMIF v5.3.
+@
+text
+@@
+
+*/
