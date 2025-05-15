@@ -39,5 +39,5 @@ This web application allows researchers across Canada to securely upload, manage
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/mri-scan-portal.git
+git clone https://github.com/your-username/MSMRI/Website.git
 cd mri-scan-portal
