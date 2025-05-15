@@ -82,6 +82,7 @@ A secure and user-friendly interface for researchers to upload MRI or blood scan
 | **Monthly Hours Saved**         | ⏱ ~40 hours                   |
 | **Sequence Classification**     | 🎯 98% accuracy (RF)           |
 | **Artifact Detection**          | 🧠 92% accuracy (3D CNN)        |
+| **Website Upload Portal**       | 🌐 Enables large-scale researcher uploads across Canada |
 | **Active Deployment**           | 🌐 Canada-wide MRI pipelines    |
 | **Patient Impact**              | 🧍 Fewer re-scans, faster care |
 
