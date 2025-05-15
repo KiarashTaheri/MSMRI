@@ -1,37 +1,43 @@
-# 🧠 MRI Sequence Classifier (Random Forest-Powered)
-
-This Python-based classifier predicts the MRI sequence type using only scan parameters—**no images required**. Designed to support radiology workflows, it reduces manual quality control time by over **50%**, effectively saving **~40 hours of labor each month**.
-
-> ⚡ Fast. 🔍 Accurate. 📉 Minimal input.  
-> Built for researchers, technologists, and imaging labs handling large-scale MRI datasets.
 
 ---
 
-## 🚀 What It Does
+## 💡 Problem It Solves
 
-Given five common DICOM metadata fields:
-- Echo Time
-- Repetition Time
-- Manufacturer
-- Series Description
-- Bolus Agent
+Large-scale MRI studies often include scans from different centers, scanners, and protocols. Human verification of the **sequence type (T1, FLAIR, T2, etc.)** is time-consuming and prone to inconsistency.
 
-The tool:
-1. Encodes numerical and textual data into feature vectors
-2. Uses a trained **Random Forest Classifier** to predict a scan type (e.g., `T1`, `FLAIR`, `DWI`, etc.)
-3. Outputs the predicted MRI protocol—accelerating protocol verification
+This tool automates that verification step by:
+- Extracting key DICOM metadata
+- Classifying protocol type with a machine learning model
+- Outputting a standardized sequence label
 
----
-
-## 💡 Why Use It?
-
-✅ **Reduces Manual QC by 50%**  
-✅ **~40 Hours Saved Monthly** for typical research imaging pipelines  
-✅ **No Image Loading Needed**—just scan parameters  
-✅ **Fast Classification** (<1 sec per case)  
-✅ **Portable + Easily Integrated** into DICOM sorters or PACS tools
+### 📉 Results:
+- 🕐 **~40 hours/month** saved
+- 💪 **50%+ reduction** in quality control effort
+- 💼 **Integrated into national MS MRI processing pipelines**
 
 ---
 
-## 🧱 Project Files
+## 🧠 How It Works
 
+1. **Input**:  
+   Basic DICOM metadata:  
+   - Echo Time  
+   - Repetition Time  
+   - Manufacturer  
+   - Series Description  
+   - Bolus Agent (YES/NO)
+
+2. **Feature Engineering**:  
+   - Numeric encoding of times and bolus
+   - Bag-of-characters encoding for `Manufacturer` and `Series Description`
+
+3. **Prediction**:  
+   - A pretrained `RandomForestClassifier` outputs a letter-based label
+   - Label is mapped to the human-readable MRI sequence name (e.g., `T1-weighted`, `FLAIR`, etc.)
+
+---
+
+## 🧪 Example Usage
+
+```bash
+python RFclass.py 90 500 Siemens "T1-weighted axial" NO
