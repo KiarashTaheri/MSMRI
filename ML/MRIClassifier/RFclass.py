@@ -47,6 +47,10 @@ class MRI_Image_Predictor:
                 pass
             except:
                 continue
+        print(X_bag_of_chars_seriesDesc)
+        print(X_bag_of_chars_manu)
+        print(type(X_bag_of_chars_manu[0]))
+        print(type(X_bag_of_chars_seriesDesc[0]))
         X_bag_of_chars = X_bag_of_chars_manu + X_bag_of_chars_seriesDesc
         yPred = self.moduleRF.predict(X_bag_of_chars)
         
@@ -54,17 +58,10 @@ class MRI_Image_Predictor:
         seqDataCovert = pd.read_csv('DB_sequenceTypes21.csv',names=convertCols)
         seqDict = dict(zip(seqDataCovert['letter'], seqDataCovert['Sequence']))
         yLetter = chr(int(yPred[0]) + 64)
-        print(yLetter)
         yClass = seqDict.get(yLetter)
+        
+        return yClass
 
-        dictTitle = ['Description', 'Number']
-        letterToNumber = pd.read_csv('dictionarySeriesDescription-Number.csv', names=dictTitle)
-        LettterDict = dict(zip(letterToNumber['Description'], letterToNumber['Number']))
-        yNumber = LettterDict.get(yClass)
-        print(yNumber)
-        print(yPred[0])
-        print(yClass)
-        return yNumber
 
 def main():
     echoTime = int(sys.argv[1])
@@ -76,6 +73,7 @@ def main():
 
     predictor = MRI_Image_Predictor()
     result = predictor.myPredictK(echo_Time=echoTime, repetition_Time=repetitionTime, Manufacturer=Manufacturer, series_description=seriesdescription, bolus_agent=bolusagent )
-    
+    print(result)
+    return result
 
 main()
